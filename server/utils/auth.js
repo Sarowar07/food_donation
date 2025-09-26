@@ -1,5 +1,5 @@
 import jwt from "jsonwebtoken"
-const secret = "your_secret_key"; 
+const secret = JWT_SECRET; 
 export function generateToken(id,name,email,address,phn_no){
     const payload={
         id:id,
