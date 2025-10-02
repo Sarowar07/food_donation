@@ -10,7 +10,9 @@ router.post("/signup",async (req,res)=>{
           if (!name || !email || !phn_no||!address ||!password) {
             return res.status(400).json({ message: "Name, email, and phone are required" });
         }
-          const user= await createUser(name,phn_no,email,address,password)
+          
+            const {lattitude,longtitude}=getCoordinates(address)
+          const user= await createUser(name,phn_no,email,address,lattitude,longtitude,password)
            res.status(201).json({ message: "User created successfully", user });
        }catch(err){
         console.error(err)

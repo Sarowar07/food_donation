@@ -3,7 +3,7 @@ import bcrypt from "bcrypt"
 
 
 const saltRounds = 10;
-export async function createUser(name,phn_no,email,address,password){
+export async function createUser(name,phn_no,email,address,lattitude,longtitude,password){
  const [existing] = await db.execute(
     "SELECT * FROM volunteer WHERE vol_email = ? OR vol_phn_no = ?",
     [email, phn_no]
@@ -12,7 +12,7 @@ export async function createUser(name,phn_no,email,address,password){
             return { success: false, message: "Email or phone number already registered" };
         }
    const hashedPassword=await bcrypt.hash(password,saltRounds)
-   const [result]=await db.execute("INSERT INTO volunteer (vol_name,vol_phn_no,vol_email,vol_address,password) VALUES (?, ?, ?,?,?)",[name,phn_no,email,address,hashedPassword]);
+   const [result]=await db.execute("INSERT INTO volunteer (vol_name,vol_phn_no,vol_email,vol_address,vol_latitude,vol_longitude,password) VALUES (?, ?, ?,?,?,?,?)",[name,phn_no,email,address,lattitude,longtitude,hashedPassword]);
    return { success: true, userId: result.insertId };
 }
 export async function validateUser(email,password){

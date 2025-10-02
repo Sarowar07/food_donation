@@ -3,7 +3,7 @@ import bcrypt from "bcrypt";
 
 const saltRounds = 10;
 
-export async function createUser(name, phn_no, email, address, password) {
+export async function createUser(name, phn_no, email, address,lattitude,longtitude, password) {
 
     const [existing] = await db.execute(
         "SELECT * FROM ngo WHERE ngo_email = ? OR ngo_phn_no = ?",
@@ -17,8 +17,8 @@ export async function createUser(name, phn_no, email, address, password) {
     const hashedPassword = await bcrypt.hash(password, saltRounds);
 
     const [result] = await db.execute(
-        "INSERT INTO ngo (ngo_name, ngo_phn_no, ngo_email, ngo_address, password) VALUES (?, ?, ?, ?, ?)",
-        [name, phn_no, email, address, hashedPassword]
+        "INSERT INTO ngo (ngo_name, ngo_phn_no, ngo_email, ngo_address,ngo_latitude,ngo_longitude, password) VALUES (?, ?, ?,?,?, ?, ?)",
+        [name, phn_no, email, address,lattitude,longtitude, hashedPassword]
     );
 
     return { success: true, userId: result.insertId };
