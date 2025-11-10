@@ -43,57 +43,44 @@ const Login = ({ setIsLoggedIn }) => {
   };
 
   return (
-    <div className="bg-blue-500 border p-6 rounded max-w-md mx-auto mt-20 flex flex-col items-center">
-  <h1 className="text-black text-2xl font-bold text-center mb-6">LOGIN</h1>
-
-  <form className="flex flex-col gap-4 w-full" onSubmit={handleLogin}>
-    <label htmlFor="role" className="font-semibold text-black">
-      Select Role:
-    </label>
-    <select
-      id="role"
-      value={role}
-      onChange={(e) => setRole(e.target.value)}
-      className="p-2 bg-white rounded w-full"
-    >
-      <option value="Volunteer">Volunteer</option>
-      <option value="Restaurant">Restaurant</option>
-      <option value="NGO">NGO</option>
-    </select>
-
-    <label htmlFor="email" className="font-semibold text-black">
-      Email:
-    </label>
-    <input
-      id="email"
-      type="email"
-      value={email}
-      onChange={(e) => setEmail(e.target.value)}
-      placeholder="Enter Your Email"
-      className="p-2 bg-white rounded w-full"
-    />
-
-    <label htmlFor="password" className="font-semibold text-black">
-      Password:
-    </label>
-    <input
-      id="password"
-      type="password"
-      value={password}
-      onChange={(e) => setPassword(e.target.value)}
-      placeholder="Enter Your Password"
-      className="p-2 bg-white rounded w-full"
-    />
-
-    <Button
-      type="submit"
-      className="mx-auto"
-    >
-      Login
-    </Button>
-  </form>
-</div>
-
+    <div className="h-screen flex items-start mt-20 justify-center">
+      <div className="flex flex-col items-center justify-center w-full max-w-sm border border-primary/30 shadow-xl shadow-primary/20 rounded-md">
+        <h1 className="text-2xl font-bold text-center my-3 ">Login</h1>
+        <select
+          value={role}
+          onChange={(e) => setRole(e.target.value)}
+          className="w-40 p-2 rounded border-2 border-gray-300 outline-none"
+        >
+          <option value="">Select Role</option>
+          <option value="Volunteer">Volunteer</option>
+          <option value="NGO">NGO</option>
+          <option value="Restaurant">Restaurant</option>
+        </select>
+        <form onSubmit={handleLogin} className="flex flex-col w-full gap-2 px-3">
+          
+          <label className="font-bold">Email:</label>
+          <input
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="abc@gmail.com"
+            className="p-2 rounded border-2 border-gray-300 outline-none"
+          />
+          
+          <label className="font-bold">Password:</label>
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder="Password@123"
+            className="p-2 rounded border-2 border-gray-300 outline-none"
+          />
+        </form>
+        <Button type="submit" className="mb-3">
+          Login
+        </Button>
+      </div>
+    </div>
   );
 };
 

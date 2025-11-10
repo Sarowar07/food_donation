@@ -2,7 +2,7 @@ import { ButtonHTMLAttributes } from "react";
 
 const Button=({ children, onClick, type = "button", className = "" })=>{
     return (
-        <button className={`bg-blue-600 p-3 mt-3 w-1/2 rounded hover:scale-110  ${className}`} >{children} </button>
+        <button className={`bg-primary p-3 mt-3 w-1/2 rounded hover:scale-105 hover:bg-primary/90  ${className}`} >{children} </button>
     )
     
 }

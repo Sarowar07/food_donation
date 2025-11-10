@@ -9,6 +9,7 @@ import deliveryRouter from "./router/deliveryRouter.js";
 
 const app = express();
 const PORT = process.env.PORT || 8000;
+import authRouter from "./router/authRouter.js";
 
 app.use(cors({
   origin: "http://localhost:5173",
@@ -16,14 +17,13 @@ app.use(cors({
 }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }))
-
+app.use("/auth", authRouter);
 app.use(cookieParser());         
+
 
 app.get("/", (req, res) => {
   res.json({ message: "Use POST /signup with name, email, password, etc." });
 });
-import authRouter from "./router/authRouter.js";
-app.use("/auth", authRouter);
 app.use("/volunteer", volunteerRouter);
 app.use("/resturent", resturentRouter);
 app.use("/ngo", ngoRouter);

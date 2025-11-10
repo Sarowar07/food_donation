@@ -34,6 +34,10 @@ const Home = () => {
   }, []);
 
   return (
+    <>
+    <div>
+
+    </div>
     <div className="min-h-screen p-4">
       <h2>Past Donations</h2>
       {history.length === 0 ? (
@@ -50,6 +54,7 @@ const Home = () => {
         </ul>
       )}
     </div>
+    </>
   );
 };
 

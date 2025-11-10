@@ -8,11 +8,11 @@ const db=await mysql.createPool({
     password:process.env.MYSQL_PASSWORD,
     database:process.env.MYSQL_DATABASE,
     port:process.env.MYSQL_PORT,
+    waitForConnections: true,
+    connectionLimit: 10,
+    queueLimit: 0,
     ssl: {
   rejectUnauthorized: false,
-  waitForConnections: true,
-  connectionLimit: 10,
-  queueLimit: 0
 }
 })
 console.log('database connected')

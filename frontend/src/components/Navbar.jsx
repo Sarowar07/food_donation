@@ -10,9 +10,10 @@ const Navbar = ({ isLoggedIn, setIsLoggedIn }) => {
   };
 
   return (
-    <nav className="bg-blue-800 text-white px-6 py-4 flex justify-between items-center shadow-md">
+    <div className="bg-primary/90">
+  <nav className="text-white px-6 py-4 flex justify-between items-center shadow-lg shadow-black">
 
-      <div className="text-2xl font-bold">
+      <div className="text-2xl font-bold  ">
         <Link to="/">HopeMeals</Link>
       </div>
 
@@ -30,12 +31,13 @@ const Navbar = ({ isLoggedIn, setIsLoggedIn }) => {
           </button>
         ) : (
           <>
-            <Link to="/login" className="bg-white text-blue-500 px-4 py-1 rounded hover:bg-gray-200  hover:shadow-lg hover:scale-105 transition">Login</Link>
-            <Link to="/signup" className="bg-white text-blue-500 px-4 py-1 rounded hover:bg-gray-200 hover:shadow-lg hover:scale-105 transition">Signup</Link>
+            <Link to="/login" className="bg-white text-primary px-4 py-1 rounded hover:bg-gray-200  hover:shadow-lg hover:scale-105 transition">Login</Link>
+            <Link to="/signup" className="bg-white text-primary px-4 py-1 rounded hover:bg-gray-200 hover:shadow-lg hover:scale-105 transition">Signup</Link>
           </>
         )}
       </div>
     </nav>
+    </div>
   );
 };
 
